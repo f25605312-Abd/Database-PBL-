@@ -1,4 +1,7 @@
-Join Across 3 Tables
+create database pbl;
+use pbl;
+
+-- Join Across 3 tables
 
 
 SELECT s.Name, c.CourseName, e.Grade
@@ -6,7 +9,7 @@ FROM Student s
 JOIN Enrollment e ON s.StudentID = e.StudentID
 JOIN Course c ON e.CourseID = c.CourseID;
 
-Aggregation with GROUP BY + HAVING
+-- Aggregation with GROUP BY + HAVING
 
 
 SELECT Department, AVG(Credits) AS AvgCredits
@@ -14,7 +17,7 @@ FROM Course
 GROUP BY Department
 HAVING AVG(Credits) > 3;
 
-Nested Subquery
+-- Nested Subquery
 
 
 SELECT Name
@@ -25,7 +28,7 @@ WHERE StudentID IN (
     WHERE Grade = 'A'
 );
 
-View Creation
+-- View Creation
 
 
 CREATE VIEW StudentCourseView AS
@@ -33,21 +36,3 @@ SELECT s.Name, c.CourseName, e.Grade
 FROM Student s
 JOIN Enrollment e ON s.StudentID = e.StudentID
 JOIN Course c ON e.CourseID = c.CourseID;
-
-Trigger Example
-
-
-CREATE TABLE AuditLog (
-    LogID INT PRIMARY KEY AUTO_INCREMENT,
-    StudentID INT,
-    Action VARCHAR(50),
-    LogDate DATE
-);
-
-CREATE TRIGGER AfterEnrollmentInsert
-AFTER INSERT ON Enrollment
-FOR EACH ROW
-BEGIN
-    INSERT INTO AuditLog (StudentID, Action, LogDate)
-    VALUES (NEW.StudentID, 'Enrollment Added', NEW.EnrollmentDate);
-END;

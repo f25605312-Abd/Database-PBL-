@@ -1,3 +1,6 @@
+create database pbl;
+use pbl;
+
 INSERT INTO Student VALUES
 (1, 'Ali Khan', 'Male', '2024-09-01', 3.2),
 (2, 'Sara Malik', 'Female', '2024-09-01', 3.8),
