@@ -1,6 +1,3 @@
-create database pbl;
-use pbl;
-
 INSERT INTO Student VALUES
 (1, 'Ali Khan', 'Male', '2024-09-01', 3.2),
 (2, 'Sara Malik', 'Female', '2024-09-01', 3.8),
@@ -62,4 +59,3 @@ INSERT INTO Enrollment VALUES
 (408, 8, 107, '2021-09-30', 'A'),
 (409, 9, 108, '2020-09-10', 'B'),
 (410, 10, 109, '2020-09-15', 'A');
-
